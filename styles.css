@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+ul, li {
+    list-style: none;
+}
+.container {
+    margin: 0 auto;
+    max-width: 800px;
+}
+.categories span {
+    cursor: pointer;
+   
+}
+.categories,
+.categories-list {
+    padding: 5px 10px;
+}
+
+.navigation {
+    width: 150px;
+}
+.navigation li {
+    position: relative;
+}
+.navigation ul {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: -150px;
+    width: 150px;
+}
+
+.categories-list {
+    position: relative;
+    right: 0px;
+    top: 0;
+}
+ul.sub-menu-active {
+    display: block;
+}
