@@ -42,3 +42,56 @@ ul, li {
 ul.sub-menu-active {
     display: block;
 }
+.form {
+    background-color: rgb(228, 228, 228);
+    padding: 20px;
+    max-width: fit-content;
+    
+    
+    margin: 0 auto;
+    display: none;
+}
+
+.form form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.form h4 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.form button {
+    display: block;
+    margin: 0 auto; 
+}
+
+textarea {
+    resize: vertical;
+    width: 100%;
+    padding: 5px;
+}
+
+table {
+    margin: 0 auto;
+    border: 3px solid rgb(197, 197, 197);
+    border-radius: 5px;
+
+    display: none;
+    max-width: fit-content;
+    
+    
+}
+
+caption {
+    text-transform: uppercase;
+}
+
+th {
+    text-align: end;
+}
+td {
+    text-align: start;
+}

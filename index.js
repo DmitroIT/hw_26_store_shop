@@ -1,8 +1,12 @@
 const navigation = document.querySelector('.navigation');
 const buyButton = document.querySelectorAll('button');
 const categoryContent = document.querySelector('.categories-list span');
+const formConteiner = document.querySelector('.form')
+const table = document.querySelector('table')
 
 navigation.addEventListener('click', (e) => {
+
+  //console.log(e.currentTarget)
   if (e.target.nodeName !== 'SPAN') return;
   closeAllSubmenu(e.target.nextElementSibling);
   e.target.nextElementSibling.classList.toggle('sub-menu-active');
@@ -24,13 +28,76 @@ closeAllSubmenu = (current) => {
   })
 }
 
+function closeNavigation() {
+  navigation.style.display = 'none';
+}
+
 buyButton.forEach((button) => {
   button.addEventListener('click', (e) => {
     e.stopPropagation();
-    alert('Товар куплен');
-    closeAllSubmenu();
+    closeNavigation();
+    formConteiner.style.display = 'block';
   });
 });
+
+// отправка формы
+document.querySelector('#signup').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const fullNameInput = document.querySelector('#fullname');
+  const location = document.querySelector('#location').value;
+  const stock = document.querySelector('#stocks').value;
+  const payOptions = document.querySelector('input[name="payment_options"]:checked').value;
+  const quantity = +(document.querySelector('#quantity').value);
+  const coment = document.querySelector('#coment').value;
+
+  const fullName = (fullNameInput.value).replace(/[^\p{L}\s]/gu, "").replace(/\d+/g, "").replace(/\s+/g, " ").trim();
+  const orderInfo = document.querySelector('#orderInfo');
+  const fullOrderInfo =
+    `
+    <caption>информация по заказу</caption>
+    <tr>
+      <th>ФИО:</th>
+      <td>${fullName}</td>
+    </tr>
+    <tr>
+      <th>населеный пункт:</th>
+      <td>${location}</td>
+    </tr>
+    <tr>
+      <th>склад:</th>
+      <td>${stock}</td>
+    </tr>
+    <tr>
+      <th>вариант оплаты:</th>
+      <td>${payOptions}</td>
+    </tr>
+    <tr>
+      <th>количество товара:</th>
+      <td>${quantity}</td>
+    </tr>
+    <tr>
+      <th>коментарий к заказу:</th>
+      <td>${coment}</td>
+    </tr>
+  `;
+  orderInfo.innerHTML = fullOrderInfo;
+
+  // проверка обязательных полей
+  if (fullName === '') {
+    alert('Введите ФИО');
+    return false;
+  }
+
+  if (quantity <= 0 || isNaN(quantity)) {
+    alert('Введите количество товара');
+    return false;
+  }
+  table.style.display = 'block';
+  formConteiner.style.display = 'none';
+  return true;
+})
+
+
 
 
 

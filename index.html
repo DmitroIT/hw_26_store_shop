@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./styles.css" />
-  <title>hw 26 store shop</title>
+  <title>hw 30 store shop form</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
             <span>lenovo</span>
             <ul>
               <li class="categories-list__content">
-                <div >
+                <div>
                   <p>описание</p>
                   <button>купить</button>
                 </div>
@@ -31,7 +31,7 @@
             <span>hp</span>
             <ul>
               <li class="categories-list__content">
-                <div >
+                <div>
                   <p>описание</p>
                   <button>купить</button>
                 </div>
@@ -43,7 +43,7 @@
             <span>asus</span>
             <ul>
               <li class="categories-list__content">
-                <div >
+                <div>
                   <p>описание</p>
                   <button>купить</button>
                 </div>
@@ -55,7 +55,7 @@
             <span>acer</span>
             <ul>
               <li class="categories-list__content">
-                <div >
+                <div>
                   <p>описание</p>
                   <button>купить</button>
                 </div>
@@ -72,7 +72,7 @@
             <span>samsung</span>
             <ul>
               <li class="categories-list__content">
-                <div >
+                <div>
                   <p>описание</p>
                   <button>купить</button>
                 </div>
@@ -84,7 +84,7 @@
             <span>xiaomi</span>
             <ul>
               <li class="categories-list__content">
-                <div >
+                <div>
                   <p>описание</p>
                   <button>купить</button>
                 </div>
@@ -96,7 +96,7 @@
             <span>iphone</span>
             <ul>
               <li class="categories-list__content">
-                <div >
+                <div>
                   <p>описание</p>
                   <button>купить</button>
                 </div>
@@ -113,7 +113,7 @@
             <span>спортодежда</span>
             <ul>
               <li class="categories-list__content">
-                <div >
+                <div>
                   <p>описание</p>
                   <button>купить</button>
                 </div>
@@ -125,7 +125,7 @@
             <span>спортинвентарь</span>
             <ul>
               <li class="categories-list__content">
-                <div >
+                <div>
                   <p>описание</p>
                   <button>купить</button>
                 </div>
@@ -136,6 +136,69 @@
         </ul>
       </li>
     </ul>
+
+    <!-- form -->
+    <div class="form">
+      <form id="signup" action="#" method="post">
+        <h4>оформление заказа</h4>
+
+        <div class="form__item fullname">
+          <label for="fullname">ФИО</label>
+          <input type="text" name="fullname" id="fullname" placeholder="Иванов Иван Иванович" minlength="3" required>
+          <small></small>
+        </div>
+
+        <div class="form__item">
+          <label for="location">Населеный пункт</label>
+          <select name="city" id="location">
+            <option value="city 1">город 1</option>
+            <option value="city 2">город 2</option>
+            <option value="city 3">город 3</option>
+            <option value="city 4">город 4</option>
+            <option value="city 5">город 5</option>
+          </select>
+        </div>
+
+        <div class="form__item">
+          <label for="stocks">Склад НП:</label>
+          <select name="stock" id="stocks">
+            <option value="stock 1">склад 1</option>
+            <option value="stock 2">склад 2</option>
+            <option value="stock 3">склад 3</option>
+            <option value="stock 4">склад 4</option>
+            <option value="stock 5">склад 5</option>
+            <option value="stock 6">склад 6</option>
+          </select>
+        </div>
+
+        <div class="form__item">
+          <p>варианты оплаты:</p>
+
+          <input type="radio" name="payment_options" id="card" value="банковская карта" checked>
+          <label for="card">банковская карта</label>
+
+          <p></p>
+          <input type="radio" name="payment_options" id="after_payment" value="наложенный платеж">
+          <label for="after_payment">наложенный платеж</label>
+        </div>
+
+        <div class="form__item">
+          <label for="quantity">количество товара</label>
+          <input type="number" name="quantity" id="quantity" min="1" placeholder="">
+        </div>
+
+        <div class="form__item">
+          <textarea name="coment" id="coment" rows="3" placeholder="коментарий к заказу"></textarea>
+        </div>
+
+
+
+        <button class="form__button" type="submit">сохранить</button>
+      </form>
+    </div>
+
+    <!-- информация о заказе -->
+    <table id="orderInfo"></table>
   </div>
 
   <script src="./index.js"></script>
