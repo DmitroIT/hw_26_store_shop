@@ -39,18 +39,30 @@ buyButton.forEach((button) => {
     formConteiner.style.display = 'block';
   });
 });
+//-------------------------------------
+const fullNameInput = document.querySelector('#fullname');
+const locationInput = document.querySelector('#location');
+const stockInput = document.querySelector('#stocks');
+const payOptionsInput = document.querySelector('input[name="payment_options"]:checked');
+const quantityInput = document.querySelector('#quantity');
+const comentInput = document.querySelector('#coment');
 
 // отправка формы
 document.querySelector('#signup').addEventListener('submit', (e) => {
   e.preventDefault();
-  const fullNameInput = document.querySelector('#fullname');
-  const location = document.querySelector('#location').value;
-  const stock = document.querySelector('#stocks').value;
-  const payOptions = document.querySelector('input[name="payment_options"]:checked').value;
-  const quantity = +(document.querySelector('#quantity').value);
-  const coment = document.querySelector('#coment').value;
 
+  validateForm()
+});
+
+const validateForm = () => {
   const fullName = (fullNameInput.value).replace(/[^\p{L}\s]/gu, "").replace(/\d+/g, "").replace(/\s+/g, " ").trim();
+  const quantity = +(quantityInput.value);
+
+  const location = locationInput.value;
+  const stock = stockInput.value;
+  const payOptions = payOptionsInput.value;
+
+  const coment = comentInput.value
   const orderInfo = document.querySelector('#orderInfo');
   const fullOrderInfo =
     `
@@ -81,28 +93,19 @@ document.querySelector('#signup').addEventListener('submit', (e) => {
     </tr>
   `;
   orderInfo.innerHTML = fullOrderInfo;
+  //------------------------------
+    if (fullName === '') {
+      alert('Введите ФИО');
+      return false;
+    }
 
-  // проверка обязательных полей
-  if (fullName === '') {
-    alert('Введите ФИО');
-    return false;
+    if (quantity <= 0 || isNaN(quantity)) {
+      alert('Введите количество товара');
+      return false;
+    }
+    table.style.display = 'block';
+    formConteiner.style.display = 'none';
+    return true;
   }
-
-  if (quantity <= 0 || isNaN(quantity)) {
-    alert('Введите количество товара');
-    return false;
-  }
-  table.style.display = 'block';
-  formConteiner.style.display = 'none';
-  return true;
-})
-
-
-
-
-
-
-
-
-
+  
 
